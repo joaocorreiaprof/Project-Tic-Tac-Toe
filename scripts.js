@@ -20,11 +20,15 @@ function createBoard() {
   for (let i = 0; i < row; i++) {
     board[i] = [];
     for (let j = 0; j < column; j++) {
-      board[i][j] = "X"; // You can put any placeholder value here
+      board[i][j] = " ";
     }
     console.log(i);
-    console.log(board[i]); // Now you'll see the content of each row
+    console.log(board[i]);
   }
+
+  board[0][0] = "1";
+  board[0][1] = "2";
+  board[0][2] = "3";
   console.log(board);
 }
 
