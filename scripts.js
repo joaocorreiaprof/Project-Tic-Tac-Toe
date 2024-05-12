@@ -1,17 +1,12 @@
-function createBoard() {
-  const row = 3;
-  const column = 3;
-  const board = [];
+//Get cells
+const cells = document.querySelectorAll(".cell");
 
-  for (let i = 0; i < row; i++) {
-    board[i] = [];
-    for (let j = 0; j < column; j++) {
-      board[i][j] = " ";
-    }
-  }
-  console.log(board);
-}
-
+cells.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    cell.textContent = playersMove();
+  });
+});
+//Players object
 const Players = {
   player1: {
     name: "Player 1",
@@ -21,19 +16,18 @@ const Players = {
     name: "Player 2",
     mark: "O",
   },
-
-  getPlayersMark: function () {
-    const playerArray = Object.values(this);
-    const playerMarks = playerArray.map((player) => player.mark);
-
-    console.log(playerMarks);
-    return playerMarks;
-  },
 };
+// Current player
+let currentPlayer = Players.player1;
 
-function controlFlow() {
-  createBoard();
-  takeTurn();
+function playersMove() {
+  // Toggle between players
+  if (currentPlayer === Players.player1) {
+    currentPlayer = Players.player2;
+  } else {
+    currentPlayer = Players.player1;
+  }
+
+  // Return the mark of the current player
+  return currentPlayer.mark;
 }
-
-controlFlow();
