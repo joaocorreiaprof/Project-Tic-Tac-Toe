@@ -29,3 +29,7 @@ body {
   align-items: center;
   font-size: 100px;
 }
+
+.current-message {
+  background-color: red;
+}

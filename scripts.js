@@ -1,12 +1,24 @@
 //Get cells
-const cells = document.querySelectorAll(".cell");
 
-cells.forEach((cell) => {
-  cell.addEventListener("click", () => {
-    cell.textContent = playersMove();
+function playGame() {
+  const cells = document.querySelectorAll(".cell");
+  let currentMessage = document.querySelector(".current-message");
+
+  cells.forEach((cell) => {
+    cell.addEventListener("click", () => {
+      if (cell.textContent === "") {
+        console.log(startGame);
+        currentMessage.textContent = "";
+        cell.textContent = playersMove();
+      } else {
+        currentMessage.textContent =
+          "The cell is already occupied. Try another move!";
+      }
+    });
   });
-});
+}
 //Players object
+
 const Players = {
   player1: {
     name: "Player 1",
@@ -17,8 +29,10 @@ const Players = {
     mark: "O",
   },
 };
+
 // Current player
-let currentPlayer = Players.player1;
+
+let currentPlayer = Players.player2; //In the future i need to change this. No global varibles
 
 function playersMove() {
   // Toggle between players
@@ -27,7 +41,14 @@ function playersMove() {
   } else {
     currentPlayer = Players.player1;
   }
-
-  // Return the mark of the current player
   return currentPlayer.mark;
 }
+
+//Start Game
+
+let startGame = document.querySelector(".start-button");
+
+startGame.addEventListener("click", () => {
+  startGame.hidden = true;
+  playGame();
+});
