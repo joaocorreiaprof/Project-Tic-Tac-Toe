@@ -8,26 +8,35 @@
   </head>
   <body>
     <div class="content">
-      <h1>Tic Tac Toe</h1>
-      <div class="game-board">
-        <div cellIndex="0" class="cell"></div>
-        <div cellIndex="1" class="cell"></div>
-        <div cellIndex="2" class="cell"></div>
-
-        <div cellIndex="3" class="cell"></div>
-        <div cellIndex="4" class="cell"></div>
-        <div cellIndex="5" class="cell"></div>
-
-        <div cellIndex="6" class="cell"></div>
-        <div cellIndex="7" class="cell"></div>
-        <div cellIndex="8" class="cell"></div>
+      <div class="player1-div">
+        <input type="text" class="player1-name" placeholder="Player 1" />
       </div>
-      <div class="game-info">
-        <p class="current-message"></p>
+      <div class="game">
+        <h1>Tic Tac Toe</h1>
+        <div class="game-board">
+          <div cellIndex="0" class="cell"></div>
+          <div cellIndex="1" class="cell"></div>
+          <div cellIndex="2" class="cell"></div>
+
+          <div cellIndex="3" class="cell"></div>
+          <div cellIndex="4" class="cell"></div>
+          <div cellIndex="5" class="cell"></div>
+
+          <div cellIndex="6" class="cell"></div>
+          <div cellIndex="7" class="cell"></div>
+          <div cellIndex="8" class="cell"></div>
+        </div>
+        <div class="game-info">
+          <p class="current-message"></p>
+        </div>
+
+        <div class="buttons">
+          <button class="start-button">Start</button>
+          <button class="restart-button">Restart</button>
+        </div>
       </div>
-      <div class="buttons">
-        <button class="start-button">Start</button>
-        <button class="restart-button">Restart</button>
+      <div class="player2-div">
+        <input type="text" class="player2-name" placeholder="Player 2" />
       </div>
     </div>
     <script src="scripts.js"></script>
