@@ -9,36 +9,85 @@
   height: 100vh;
 }
 
+body {
+  background-color: black;
+}
+
 .player1-div {
   width: 30%;
   background-image: url("./images/galo.jpg");
   background-size: cover;
+  border: 2px solid #e87bf5;
+  border-radius: 30px;
 }
 
 .player2-div {
   width: 30%;
   background-image: url("./images/galinha.jpg");
   background-size: cover;
+  border: 2px solid #e87bf5;
+  border-radius: 25px;
 }
 
 .game {
   width: 40%;
-
   display: flex;
   flex-direction: column;
   background-image: url("./images/arena.jpg");
   background-size: cover;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
+      0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
+      0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
+      0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  }
+  50% {
+    text-shadow: 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffcc00;
+  }
+  100% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  }
 }
 
 h1 {
-  margin-top: 250px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 130px;
+  color: #ff0000;
+  letter-spacing: 13px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+  transform: rotate(-8deg);
 }
 
-h1,
-.game-board,
-.game-info,
-.buttons {
-  margin-left: 200px;
+.game-info {
+  background-color: rgb(43 0 31);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #e87bf5;
+}
+
+.current-message {
+  font-family: "Press Start 2P", cursive;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
 .game-board {
@@ -49,13 +98,97 @@ h1,
 
 .cell {
   display: flex;
-  background-color: white;
-  border: 1px solid black;
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  color: #ff59e1;
   justify-content: center;
   align-items: center;
   font-size: 100px;
 }
 
-.current-message {
-  background-color: red;
+.buttons {
+  display: flex;
+}
+
+.start-button,
+.restart-button {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 15px;
+  padding: 2px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #f4f800;
+  background-color: #ff59e1;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.start-button:hover,
+.restart-button:hover {
+  transform: scale(1.2);
+}
+.player1-div {
+  text-align: center;
+}
+
+.player1-name {
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  color: #ff59e1;
+  background-color: #1a1a1a;
+  border: 2px solid #ff0000;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  text-align: center;
+}
+
+.player1-name::placeholder {
+  color: #ff0000;
+}
+
+.player1-name:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.player1-name:active {
+  transform: translateY(1px);
+}
+
+.player2-div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 25px;
+}
+
+.player2-name {
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  color: #ff59e1;
+  background-color: #1a1a1a;
+  border: 2px solid #ff0000;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  text-align: center;
+}
+
+.player2-name::placeholder {
+  color: #ff0000;
+}
+
+.player2-name:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.player2-name:active {
+  transform: translateY(1px);
 }
